@@ -4,14 +4,19 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Info Jatim</title>
+    <title>Sustainable Environment | De-Je</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
     <style>
         body {
-            font-family: 'Segoe UI', sans-serif;
+            font-family: "Montserrat", sans-serif;
+            margin-bottom: 0;
         }
 
         .hero-section {
@@ -80,32 +85,14 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #16559e;">
-        <div class="container">
-            <a href="https://infojatim.id/">
-                <img src="https://infojatim.id/assets/images/logo.png?v=2" class="img-fluid my-3" width="200"
-                    alt="Logo Info Jatim">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navMenu">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="#">Berita Nasional</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Viral</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Bencana Alam</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Kriminal</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <section class="py-5 bg-light">
+    @include('_front.navbar')
+
+    <section class="py-5 bg-light container">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="mb-3">
-                        <span class="badge bg-primary text-uppercase px-4 py-2 fs-6 rounded-pill">
+                        <span class="badge bg-success text-uppercase px-4 py-2 fs-6 rounded-pill">
                             {{ $news->category_name ?? 'Kategori Tidak Diketahui' }}
                         </span>
                     </div>
@@ -122,8 +109,7 @@
             </div>
         </div>
     </section>
-    <section class="pb-5">
-        <div class="container">
+    <section class="pb-5 container">
             <div class="row">
                 <div class="col-lg-8">
                     @if(!empty($news->thumbnail_small))
@@ -132,7 +118,10 @@
                                 alt="Gambar berita">
                         </div>
                     @endif
-                    <div class="fs-5" style="line-height: 1.8;">
+                    <div class="fs-5 d-none d-md-block" style="line-height: 1.8;">
+                        {!! $news->content ?? '<p>Konten tidak tersedia.</p>' !!}
+                    </div>
+                     <div class="d-block d-md-none mx-2" style="line-height: 1.8; font-size: 17px">
                         {!! $news->content ?? '<p>Konten tidak tersedia.</p>' !!}
                     </div>
                 </div>
@@ -162,14 +151,13 @@
                     </div>
                 </div>
             </div>
-        </div>
     </section>
 
     <section class="bg-dark mt-5">
         <div class="container py-4">
             <div class="row">
                 <div class="col-md-12 text-white text-center">
-                    <h6 class="mb-0">Copyright 2025 | Infojatim.id</h6>
+                    <h6 class="mb-0">Copyright 2025 | alanaptra_</h6>
                 </div>
             </div>
         </div>

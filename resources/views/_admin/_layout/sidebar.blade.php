@@ -15,49 +15,6 @@
             </a>
         </li>
         <li class="sidebar-item">
-            <a class="sidebar-link has-arrow {{ in_array($page, ['member', 'member-category']) ? 'active' : '' }}"
-                href="#" data-toggle="collapse"
-                aria-expanded="{{ in_array($page, ['member']) ? 'true' : 'false' }}">
-                @include('_admin._layout.icons.member')
-                <span class="hide-menu">Anggota (Example)</span>
-            </a>
-            <ul
-                class="collapse with-bullets show mm-collapse {{ in_array($page, ['member', 'member-category']) ? 'show mm-collapse mm-show' : '' }}">
-                <li class="py-2 nav-item">
-                    <a href="{{ base_url('member') }}" navigate class="{{ $page == 'member' ? 'active' : '' }}">
-                        <p class="mb-0">Data Angota</p>
-                    </a>
-                </li>
-                <li class="py-2 nav-item {{ $page == 'member-category' ? 'active' : '' }}">
-                    <a href="{{ base_url('member-category') }}" navigate
-                        class="{{ $page == 'member-category' ? 'active' : '' }}">
-                        <p class="mb-0">Data Kategori Anggota</p>
-                    </a>
-                </li>
-            </ul>
-        </li>
-        <li class="sidebar-item">
-            <a class="sidebar-link has-arrow {{ in_array($page, ['product', 'product-category']) ? 'active' : '' }}"
-                href="#" data-toggle="collapse"
-                aria-expanded="{{ in_array($page, ['product']) ? 'true' : 'false' }}">
-                @include('_admin._layout.icons.dashboard')
-                <span class="hide-menu">Produk</span>
-            </a>
-            <ul
-                class="collapse with-bullets show mm-collapse {{ in_array($page, ['product', 'product-category']) ? 'show mm-collapse mm-show' : '' }}">
-                <li class="py-2 nav-item">
-                    <a href="{{ url('admin/product') }}" navigate class="{{ $page == 'product' ? 'active' : '' }}">
-                        <p class="mb-0">Data Produk</p>
-                    </a>
-                </li>
-                <li class="py-2 nav-item {{ $page == 'product-category' ? 'active' : '' }}">
-                    <a href="{{ url('admin/product-category') }}" navigate class="{{ $page == 'product-category' ? 'active' : '' }}">
-                        <p class="mb-0">Data Kategori Produk</p>
-                    </a>
-                </li>
-            </ul>
-        </li>
-        <li class="sidebar-item">
             <a class="sidebar-link has-arrow {{ in_array($page, ['news', 'news-category']) ? 'active' : '' }}"
                 href="#" data-toggle="collapse"
                 aria-expanded="{{ in_array($page, ['news']) ? 'true' : 'false' }}">

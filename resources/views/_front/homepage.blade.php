@@ -4,20 +4,24 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Info Jatim</title>
+    <title>Sustainable Environment | De-Je</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Segoe UI', sans-serif;
+            font-family: "Montserrat", sans-serif;
+            margin-bottom: 0;
         }
 
         .hero-section {
-            background: linear-gradient(135deg, #1b63b6, #14509b);
+            background: linear-gradient(135deg, #00796B, #00796B);
             color: white;
             padding: 70px 20px;
-            border-bottom-left-radius: 3rem;
-            border-bottom-right-radius: 3rem;
+            border-bottom-right-radius: 10rem;
         }
 
         .card-news {
@@ -48,9 +52,9 @@
         }
 
         .kategori-icon {
-            background-color: #175ca9;
+            background-color: #004D40;
             color: white;
-            border-radius: 50%;
+            border-radius: 30%;
             padding: 8px;
             font-size: 1rem;
         }
@@ -58,53 +62,37 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #16559e;">
-        <div class="container">
-            <a href="https://infojatim.id/">
-                <img src="https://infojatim.id/assets/images/logo.png?v=2" class="img-fluid my-3" width="200">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navMenu">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Berita Nasional</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Viral</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Bencana Alam</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Kriminal</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+
+    @include('_front.navbar')
 
     <div class="hero-section">
-        <div class="container ps-4">
-            <h6 class="mb-2">Portal Informasi Berita</h6>
-            <h1 class="fw-bold">Jawa Timur</h1>
+        <div class="container ps-1">
+            <h6 class="mb-2">Lingkungan Berkelanjutan</h6>
+            <h1 class="fw-bold">SMKN 8 JEMBER</h1>
         </div>
     </div>
 
     <div class="container my-5">
     <div class="row">
         <div class="col-lg-8">
-            <h4 class="mb-4">Berita Terbaru</h4>
+            <h4 class="mb-4 ms-2 fw-bold">Berita Terbaru</h4>
             @foreach ($berita_terbaru as $berita)
                 <a href="{{ url('/front/' . $berita->slug) }}" class="text-decoration-none text-dark">
-                    <div class="card mb-4 card-news shadow">
+                    <div class="card mb-4 p-4 card-news shadow">
                         <div class="row g-0">
-                            <div class="col-md-8 p-3">
-                                <h5 class="card-title">{{ $berita->title }}</h5>
-                                <p class="text-muted small">
+                            <div class="col-md-9 col-8">
+                                <h5 class="d-none d-md-block" style="font-size: 20px">{{ $berita->title }}</h5>
+                                <h5 class="d-block d-md-none fw-semibold px-2" style="font-size: 13px">{{ $berita->title }}</h5>
+                                <p class="text-muted small px-2 mb-0 mb-md-3">
                                     {{ \Carbon\Carbon::parse($berita->created_at)->translatedFormat('l, d F Y') }}
                                 </p>
-                                <div class="mb-3">
+                                <div class="mb-3 d-md-block d-none">
                                     <span class="badge bg-primary">{{ $berita->category ?? 'Umum' }}</span>
                                 </div>
                             </div>
-                            <div class="col-md-4 d-flex align-items-center justify-content-center">
+                            <div class="col-md-3 col-4 text-right px-2 d-flex d-md-block flex-column justify-content-center">
                                 <img src="{{ asset($berita->thumbnail_small ?? 'default.jpg') }}"
-                                     class="img-fluid rounded-end" style="max-height: 150px; object-fit: cover;"
+                                     class="img-fluid" style="border-radius: 10px;" width="120"
                                      alt="{{ $berita->title }}" />
                             </div>
                         </div>
@@ -112,8 +100,8 @@
                 </a>
             @endforeach
         </div>
-        <div class="col-lg-4">
-            <h4 class="mb-4">Kategori Berita</h4>
+        <div class="col-lg-4 mt-5">
+            <h4 class="mb-4 ms-2 fw-bold">Kategori Berita</h4>
             <div class="kategori-item mb-3">
                 <div class="kategori-icon"><i class="bi bi-globe"></i></div>Berita Nasional
             </div>
@@ -130,11 +118,11 @@
     </div>
 </div>
 
-    <section class="bg-dark" style="margin-top: 100px;">
+    <section style="margin-top: 100px; background-color: #004D40">
         <div class="container py-4">
             <div class="row">
                 <div class="col-md-12 text-white text-center">
-                    <h6 class="mb-0"> Copyright 2025 | Infojatim.id</h6>
+                    <h6 class="mb-0"> Copyright 2025 | alanaptra_</h6>
                 </div>
             </div>
         </div>

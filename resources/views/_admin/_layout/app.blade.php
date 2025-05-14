@@ -17,7 +17,6 @@
     {{-- External CSS Libraries --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/metisMenu/3.0.7/metisMenu.min.css" />
-
     
     <script src="{{ url('admin-ui') }}/assets/libs/jquery/dist/jquery.min.js"></script>
     
@@ -70,7 +69,7 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link " href="#" id="drop2" data-bs-toggle="dropdown"
                                     aria-expanded="false">
-                                    <img src="{{ url('admin-ui') }}/assets/images/logos/logo-2.png"
+                                    <img src="{{ url('admin-ui') }}/assets/images/logos/Biodiversity.png"
                                         alt="" width="150" class="img-fluid" />
                                 </a>
                             </li>

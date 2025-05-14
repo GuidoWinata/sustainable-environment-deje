@@ -66,11 +66,6 @@
                                             <ul class="dropdown-menu dropdown-menu-end">
                                                 <li>
                                                     <a class="dropdown-item"
-                                                        href="{{ url('admin/news/detail/' . $item->id) }}"
-                                                        navigate>Lihat</a>
-                                                </li>
-                                                <li>
-                                                    <a class="dropdown-item"
                                                         href="{{ url('admin/news/update/' . $item->id) }}"
                                                         navigate>Edit</a>
                                                 </li>
